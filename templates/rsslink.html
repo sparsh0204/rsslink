@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="container">
+      <h1>Enter Website link to find RSS Link</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="URL" name="weburl" value="{{
+          request.form.weburl }}">
+        <input class="btn btn-default" type="submit" value="Search">
+      </form><br>
+      <br>
+      {% if rssurl %}
+      This is the RSS Link:- {{ rssurl }}<br>
+      Click <a href={{ url_for('index') }}>here</a> to go to home page.<br>
+      {% endif %}
+
+      
+{% endblock %}

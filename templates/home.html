@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="container">
+      <h1>Enter RSS Link</h1>
+      <br>
+      <form action="/" method="post">
+        <input type="text" placeholder="RSS" name="rssfeed" value="{{
+          request.form.username }}">
+        <input class="btn btn-default" type="submit" value="Display">
+      </form><br>
+      <br>
+      Click <a href={{ url_for('rsslinkfinder') }}>here</a> to find RSSLink URL of a Website.<br><br>
+      {{ url }}
+      {% if details %}
+        <table>
+        <tr>
+        <th>Title</th>
+        <th>Link</th>
+        <th>Publish Time</th>
+        </tr>
+        {%for d in details%}
+          <tr>
+          <td>{{ d[0] }}</td>
+          <td><a href={{ d[1] }}>{{ d[1] }}</a></td>
+          <td>{{ d[2] }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+      {% endif %}
+      
+{% endblock %}
